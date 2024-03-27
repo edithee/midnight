@@ -1,7 +1,10 @@
-export default function App() {
+import React from 'react'
+import HomePage from './pages/HomePage';
+
+const App = () => {
   return (
-    <h1 className="text-3xl font-bold underline">
-      Hello world!
-    </h1>
-  );
+    <HomePage />
+  )
 };
+
+export default App;
