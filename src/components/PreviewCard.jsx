@@ -7,12 +7,16 @@ const PreviewCard = () => {
             <div className="overflow-hidden rounded bg-white text-slate-500 shadow-md shadow-slate-200 ">
                 {/*  <!-- Image --> */}
                 <figure>
-                    <img
-                        src="https://picsum.photos/id/101/800/600"
-                        alt="card image"
-                        className="aspect-video w-full"
+                    <div className="group flex justify-center items-center relative bg-red-200 cursor-pointer text-4xl">
+                        <img
+                            src="https://picsum.photos/id/101/800/600"
+                            alt="card image"
+                            className="aspect-video w-full"
 
-                    />
+                        />
+                        {/* shine box */}
+                        <div className="absolute top-0 -inset-full h-full w-1/2 z-5 block transform -skew-x-12 bg-gradient-to-r from-transparent to-white opacity-40 group-hover:animate-shine" />
+                    </div>
 
                 </figure>
                 {/*  <!-- Body--> */}
