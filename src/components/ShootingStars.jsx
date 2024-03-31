@@ -6,6 +6,8 @@ const ShootingStars = () => {
             <span id="shootingstarspan"></span>
             <span id="shootingstarspan"></span>
             <span id="shootingstarspan"></span>
+            <span id="shootingstarspan"></span>
+
         </section >
     )
 }

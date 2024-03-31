@@ -29,9 +29,7 @@ const PreviewCard = () => {
                     </header>
                     <p>
                         Experience the simple pleasures of a world with no cars, and only
-                        gentle walks through palm tree forests, and fallen coconuts. An
-                        island that’s home to extraordinary cliffs, swelling oceans, and
-                        mammoth manta rays.
+                        gentle walks through palm tree forests, and fallen coconuts.
                     </p>
                 </div>
             </div >
