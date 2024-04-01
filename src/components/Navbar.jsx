@@ -40,9 +40,9 @@ const Navbar = () => {
                                     Jobs
                                 </NavLink>
                                 <NavLink
-                                    to="/add-job"
+                                    to="/testdb"
                                     className={linkClass}>
-                                    Add Job
+                                    TestDB
                                 </NavLink>
                             </div>
                         </div>
