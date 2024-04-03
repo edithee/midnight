@@ -221,6 +221,20 @@ const ForceGraph = () => {
     //     return canvas;
     // };
 
+    const imgs = ['bubududu_cheeselove.png', 'dog.jpg', 'eagle.jpg', 'elephant.jpg', 'grasshopper.jpg', 'octopus.jpg', 'owl.jpg', 'panda.jpg', 'squirrel.jpg', 'tiger.jpg', 'whale.jpg'];
+
+    // const imgs = ['bubududu_cheeselove.png', 'bubududu_cheeselove.png', 'bubududu_cheeselove.png'];
+    // Random connected graph
+    const gData = {
+        nodes: imgs.map((img, id) => ({ id, img })),
+        links: [...Array(imgs.length).keys()]
+            .filter(id => id)
+            .map(id => ({
+                source: id,
+                target: Math.round(Math.random() * (id - 1))
+            }))
+    };
+
     return (
 
         <>
@@ -230,19 +244,57 @@ const ForceGraph = () => {
             ></ForceGraph3D> */}
 
             {/* <script type="text/jsx" data-type="module"> */}
-            <ForceGraph3D
+            {/* <ForceGraph3D
                 // graphData={{
                 //     // nodes: [{ id: 'node1' }, { id: 'node2' }],
                 //     // links: [{ source: 'node1', target: 'node2' }]
 
                 // }}
-                graphData={graphData}
-                nodeAutoColorBy="id"
-                nodeThreeObject={node => {
-                    const sprite = new SpriteText(node.id);
-                    sprite.color = node.color || 'black'; // Set default color if not provided
-                    sprite.textHeight = 8;
+                graphData={gData}
+                // nodeAutoColorBy="id"
+                // nodeThreeObject={node => {
+                // const sprite = new SpriteText(node.id);
+                // sprite.color = node.color || 'black'; // Set default color if not provided
+                // sprite.textHeight = 8;
+                // return sprite;
+                nodeThreeObject={({ img }) => {
+                    const imgTexture = new THREE.TextureLoader().load(`../assets/images/${img}`);
+                    imgTexture.colorSpace = THREE.SRGBColorSpace;
+                    const material = new THREE.SpriteMaterial({ map: imgTexture });
+                    const sprite = new THREE.Sprite(material);
+                    sprite.scale.set(12, 12);
+
                     return sprite;
+                }}
+            /> */}
+
+            <ForceGraph3D
+
+                graphData={gData}
+                nodeThreeObject={({ img }) => {
+                    // const imgTexture = new THREE.TextureLoader().load(`../src/assets/images/${img}`, () => {
+
+                    //     // Texture loaded successfully
+                    //     // imgTexture.crossOrigin = "anonymous";
+                    //     imgTexture.colorSpace = THREE.SRGBColorSpace;
+                    //     const material = new THREE.SpriteMaterial({ map: imgTexture });
+                    //     const sprite = new THREE.Sprite(material);
+                    //     sprite.scale.set(12, 12);
+                    //     return sprite;
+
+                    // }, undefined, (error) => {
+                    //     console.error('Error loading texture:', error);
+                    //     console.log(img.toString());
+                    // });
+
+                    const imgTexture = new THREE.TextureLoader().load(`../src/assets/images/${img}`);
+                    imgTexture.colorSpace = THREE.SRGBColorSpace;
+                    const material = new THREE.SpriteMaterial({ map: imgTexture });
+                    const sprite = new THREE.Sprite(material);
+                    sprite.scale.set(12, 12);
+
+                    return sprite;
+
                 }}
             />
 
