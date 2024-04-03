@@ -160,3 +160,14 @@ span:nth-child(10) {
     animation-delay: 2.75s;
     animation-duration: 2.25s;
 } */
+
+
+.node-label {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    pointer-events: none;
+    /* Ensures the labels do not interfere with mouse events */
+}
